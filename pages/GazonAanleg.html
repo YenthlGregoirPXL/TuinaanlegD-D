@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gazon Aanleg</title>
+    <link rel="stylesheet" href="../Style/DetailStyle.css">
+</head>
+<body>
+<nav>
+    <div class="navbar-left">
+        <h1><a href="../HomePage.html">Tuinaanleg D&D</a></h1>
+    </div>
+    <div class="navbar-right">
+        <a href="../HomePage.html">Home</a>
+        <a href="#">Contact</a>
+    </div>
+</nav>
+<h1 class="title">Gazon aanleg / doorzaaien</h1>
+<div class="Detail">
+    <div class="DetailRight">
+        <p>
+            Wilt u binnenkort een nieuwe grasmat zaaien of liever meteen een kant-en-klaar rolgazon? Het geheim van een prachtig groen gazon begint bij een goede basis,
+            zoals het infrezen van de juiste voeding en het egaliseren van de grond, tot aan het ontkiemen van het zaad. Als u niet klaar bent voor grote werkzaamheden,
+            maar uw gazon wel een opknapbeurt nodig heeft, dan hebben wij de oplossing voor u!
+            Met onze speciale doorzaaicombi kunnen wij van uw oude gazon een jonge, frisse en groene grasmat maken.
+            Door het combineren van verticuteren en het inzaaien van nieuw zaad bereiken wij dit prachtige resultaat.
+        </p>
+    </div>
+</div>
+<a href="#Projects">Scroll naar Projecten</a>
+
+<div id="Projects">
+    <h1 class="project-title">Projecten</h1>
+    <div class="photo-grid">
+        <img src="../Image/projects/gazonAanleg/aanleg3Voor.jpeg" alt="aanleg">
+        <img src="../Image/projects/gazonAanleg/aanleg9.jpeg" alt="aanleg">
+        <img src="../Image/projects/gazonAanleg/aanleg10.jpeg" alt="aanleg">
+        <img src="../Image/projects/gazonAanleg/aanleg15.jpeg" alt="aanleg">
+        <img src="../Image/projects/gazonAanleg/aanleg13Voor.jpeg" alt="aanleg">
+        <img src="../Image/projects/gazonAanleg/aanleg13Na.jpeg" alt="aanleg">
+        <img src="../Image/projects/gazonAanleg/aanleg17Voor.jpeg" alt="aanleg">
+        <img src="../Image/projects/gazonAanleg/aanleg17Na.jpeg" alt="aanleg">
+        <img src="../Image/projects/gazonAanleg/aanleg21.jpeg" alt="aanleg">
+        <img src="../Image/projects/gazonAanleg/aanleg27.jpeg" alt="aanleg">
+        <img src="../Image/projects/gazonAanleg/aanleg20.jpeg" alt="aanleg">
+        <img src="../Image/projects/gazonAanleg/aanleg24.jpeg" alt="aanleg">
+        <img src="../Image/projects/gazonAanleg/aanleg25.jpeg" alt="aanleg">
+        <img src="../Image/projects/gazonAanleg/aanleg23.jpeg" alt="aanleg">
+        <img src="../Image/projects/gazonAanleg/aanleg18.jpeg" alt="aanleg">
+        <img src="../Image/projects/gazonAanleg/aanleg19.jpeg" alt="aanleg">
+        <img src="../Image/projects/gazonAanleg/aanleg26.jpeg" alt="aanleg">
+        <img src="../Image/projects/gazonAanleg/aanleg4.jpeg" alt="aanleg">
+        <img src="../Image/projects/gazonAanleg/aanleg5.jpeg" alt="aanleg">
+        <img src="../Image/projects/gazonAanleg/aanleg6.jpeg" alt="aanleg">
+        <img src="../Image/projects/gazonAanleg/aanleg28.jpg" alt="aanleg">
+        <img src="../Image/projects/gazonAanleg/aanleg30.jpg" alt="aanleg">
+        <img src="../Image/projects/gazonAanleg/aanleg31.jpeg" alt="aanleg">
+        <img src="../Image/projects/gazonAanleg/aanleg32.jpeg" alt="aanleg">
+    </div>
+</div>
+</body>
+</html>
+<script>
+    // Voeg een eventlistener toe aan de link
+    document.addEventListener("DOMContentLoaded", function () {
+        const link = document.querySelector('a[href="#Projects"]');
+        const projecten = document.getElementById('Projects');
+
+        link.addEventListener("click", function (event) {
+            event.preventDefault(); // Voorkom de standaardgedrag van de link
+            projecten.scrollIntoView({ behavior: "smooth" }); // Scroll vloeiend naar het doel
+            link.classList.add("hidden"); // Verberg de link na klikken
+        });
+
+        window.addEventListener("scroll", function () {
+            const rect = projecten.getBoundingClientRect();
+            if (rect.top <= window.innerHeight) {
+                link.classList.add("hidden"); // Verberg de link na scrollen naar "Projecten"
+            } else {
+                link.classList.remove("hidden"); // Toon de link als niet bij "Projecten"
+            }
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const images = document.querySelectorAll(".photo-grid img");
+        const lightbox = document.createElement("div");
+        lightbox.id = "lightbox";
+        document.body.appendChild(lightbox);
+
+        images.forEach((image, index) => {
+            image.addEventListener("click", function () {
+                openLightbox(index);
+            });
+        });
+
+        function openLightbox(index) {
+            const img = document.createElement("img");
+            img.src = images[index].src;
+            lightbox.innerHTML = '';
+            lightbox.appendChild(img);
+            lightbox.style.display = "flex";
+
+            const closeButton = document.createElement("span");
+            closeButton.classList.add("close-btn");
+            closeButton.innerHTML = "&times;";
+            closeButton.addEventListener("click", function () {
+                lightbox.style.display = "none";
+            });
+            lightbox.appendChild(closeButton);
+
+            const prevButton = document.createElement("button");
+            prevButton.classList.add("prev");
+            prevButton.innerHTML = "&#10094;";
+            prevButton.addEventListener("click", function () {
+                showImage(index - 1);
+            });
+            lightbox.appendChild(prevButton);
+
+            const nextButton = document.createElement("button");
+            nextButton.classList.add("next");
+            nextButton.innerHTML = "&#10095;";
+            nextButton.addEventListener("click", function () {
+                showImage(index + 1);
+            });
+            lightbox.appendChild(nextButton);
+
+            document.addEventListener("keydown", function (e) {
+                if (e.key === "Escape") {
+                    lightbox.style.display = "none";
+                } else if (e.key === "ArrowLeft") {
+                    showImage(index - 1);
+                } else if (e.key === "ArrowRight") {
+                    showImage(index + 1);
+                }
+            });
+        }
+
+        function showImage(index) {
+            if (index >= 0 && index < images.length) {
+                openLightbox(index);
+            }
+        }
+    });
+
+
+</script>
