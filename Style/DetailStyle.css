@@ -59,11 +59,19 @@ body {
 }
 
 .photo-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    display: flex;
+    flex-wrap: wrap; /* zorgt ervoor dat de items naar de volgende regel gaan als ze geen ruimte hebben */
+    justify-content: center; /* centreert de items horizontaal */
     gap: 20px;
     margin-top: 20px;
 }
+.material-icons-outlined {
+    font-family: 'Material Symbols Outlined', sans-serif;
+    font-size: 24px; /* Pas dit aan naar de gewenste grootte */
+    vertical-align: middle; /* Om ervoor te zorgen dat het pictogram gecentreerd wordt naast de tekst */
+    margin-left: 5px; /* Optionele marge tussen de tekst en het pictogram */
+}
+
 
 .photo-grid img {
     width: 100%;
@@ -169,7 +177,6 @@ a[href="#Projects"] {
     bottom: 20px; /* Afstand vanaf de onderkant van het scherm */
     right: 50%; /* Horizontaal in het midden van het scherm */
     transform: translateX(50%); /* Verschuif naar links om exact in het midden te plaatsen */
-    background-color: #0074D9; /* Achtergrondkleur van de pijl */
     color: #FFFFFF; /* Tekstkleur van de pijl */
     padding: 10px; /* Ruimte rondom de tekst */
     border-radius: 50%; /* Maak een cirkelvormige pijl */
@@ -177,11 +184,13 @@ a[href="#Projects"] {
     transition: background-color 0.3s ease;
 }
 a[href="#Projects"]:hover {
-    background-color: #0056b3;
+    color: #666666; /* Tekstkleur van de pijl */
+
 }
 .hidden {
-    display: none;
+    display: none !important;
 }
+
 .photo-grid {
     display: flex;
     flex-wrap: wrap;

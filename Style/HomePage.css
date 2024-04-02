@@ -194,7 +194,7 @@ body::-webkit-scrollbar-thumb:hover {
     transform: scale(1.2);
     transition: 1s ease;
 }
-@media only screen and (min-width: 769px) and (max-width: 1400px) {
+@media only screen and (min-width: 1050px) and (max-width: 1400px) {
     .bannerText h1{
         font-size: 80px;;
     }
@@ -232,52 +232,7 @@ body::-webkit-scrollbar-thumb:hover {
         grid-template-columns: 1fr 1fr; /* items staan naast elkaar, maar er zijn minder kolommen */
     }
 }
-@media only screen and (max-width: 768px) {
-    .bannerText h1{
-        font-size: 60px;;
-    }
-    .bannerText p {
-        font-size: 20px;
-    }
-    .navbar-left h1 {
-        font-size: 18px;
-        line-height: 30px;
-        margin: 0 0 0 10px;
-    }
-
-    .navbar-right {
-        margin-right: 10px;
-    }
-
-    .navbar-right a {
-        font-size: 16px;
-        padding: 12px 14px;
-    }
-
-    .about {
-        padding: 20px;
-    }
-
-    .aboutLeft h1 {
-        font-size: 30px;
-    }
-
-    .aboutRight {
-        margin-left: 0;
-        font-size: 16px;
-    }
-
-    .dienstenGrid {
-        padding: 0 20px;
-        grid-template-columns: 1fr; /* items nemen de volledige breedte in */
-    }
-
-    .contact {
-        margin-top: 200px;
-    }
-}
-
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1050px) {
     .navbar-left h1 {
         font-size: 16px;
         line-height: 30px;
@@ -306,16 +261,17 @@ body::-webkit-scrollbar-thumb:hover {
     }
 
     .aboutLeft h1 {
-        font-size: 20px;
+        font-size: 30px;
     }
 
     .aboutRight {
         margin-left: 0;
-        font-size: 14px;
+        font-size: 16px;
     }
 
     .dienstenGrid {
         padding: 0 10px;
+        grid-template-columns: 1fr; /* Items nemen de volledige breedte in */
     }
 
     .contact {
