@@ -1,9 +1,9 @@
 body {
-    position: relative; /* Maak de body relatief gepositioneerd */
+    position: relative;
 }
 #Projects {
-    position: relative; /* Maak de Projects sectie relatief gepositioneerd */
-    top: 100vh; /* Plaats het onder het viewport */
+    position: relative;
+    top: 100vh;
 }
 body {
     margin: 0;
